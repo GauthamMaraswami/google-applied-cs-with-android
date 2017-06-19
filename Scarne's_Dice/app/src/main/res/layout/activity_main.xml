@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gautham.scarnes_dice.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="375dp"
+        android:layout_height="32dp"
+        android:text="YourScore:0 ComputerScore:0"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="374dp"
+        android:layout_height="190dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/dice1"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="131dp"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/label"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/hold"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_weight="0.05"
+        android:onClick="holdButtonClick"
+        android:text="Hold"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="399dp"
+        android:layout_alignBaseline="@+id/roll"
+        android:layout_alignBottom="@+id/roll"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/roll"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_weight="0.05"
+        android:elevation="0dp"
+        android:onClick="RollButtonClick"
+        android:text="Roll"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="399dp"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/imageView"
+        android:layout_toRightOf="@+id/hold"
+        android:layout_toEndOf="@+id/hold" />
+
+    <Button
+        android:id="@+id/Reset"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:layout_weight="0.05"
+        android:onClick="resetButtonClick"
+        android:text="Reset"
+        tools:layout_editor_absoluteX="250dp"
+        tools:layout_editor_absoluteY="399dp"
+        android:layout_alignBaseline="@+id/roll"
+        android:layout_alignBottom="@+id/roll"
+        android:layout_toRightOf="@+id/hold"
+        android:layout_toEndOf="@+id/hold"
+        android:layout_marginLeft="113dp"
+        android:layout_marginStart="113dp" />
+
+    <TextView
+        android:id="@+id/win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Reset"
+        android:layout_alignEnd="@+id/Reset"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/Reset"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:text="you win" />
+
+</RelativeLayout>

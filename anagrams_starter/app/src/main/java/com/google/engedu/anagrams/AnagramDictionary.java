@@ -1,15 +1,31 @@
+/* Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.google.engedu.anagrams;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Random;
 
+import java.util.Random;
 public class AnagramDictionary {
 
     private static final int MIN_NUM_ANAGRAMS = 5;
@@ -25,12 +41,10 @@ public class AnagramDictionary {
     public HashSet<String> wordSet = new HashSet<>();
 
     public HashMap<Integer, ArrayList<String>> sizeToWords = new HashMap<>();
-
-    public AnagramDictionary(InputStream wordListStream) throws IOException {
-
-
+    public AnagramDictionary(InputStream wordListStream)throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(wordListStream));
         String line;
+
         while ((line = in.readLine()) != null) {
             String word = line.trim();
 
@@ -63,6 +77,7 @@ public class AnagramDictionary {
             }
 
         }
+
     }
 
     public boolean isGoodWord(String word, String base) {
@@ -89,10 +104,12 @@ public class AnagramDictionary {
             }
         }
 
-        return result;
+            return result;
+
     }
 
     public ArrayList<String> getAnagramsWithOneMoreLetter(String word) {
+
         ArrayList<String> result = new ArrayList<String>();
 
         String alphabets = "abcdefghijklmnopqrstuvwxyz";
@@ -119,15 +136,17 @@ public class AnagramDictionary {
                     }
                 }
 
+                result.addAll(tempList);
                 //remove all the notGoodWords
                 result.removeAll(removeList);
 
                 //add the list to the remaining list to be returned
-                result.addAll(tempList);
+
             }
         }
 
         return result;
+
     }
 
     public String pickGoodStarterWord() {
@@ -147,7 +166,7 @@ public class AnagramDictionary {
             String randomWord = tempList.get(num);
 
             //get all the anagrams for that random word
-            ArrayList<String> arrayList = getAnagramsWithOneMoreLetter(randomWord);
+            ArrayList <String> arrayList = getAnagramsWithOneMoreLetter(randomWord);
 
             //validate the conditions given
             if ((randomWord.length() == wordLength) && arrayList.size() > MIN_NUM_ANAGRAMS) {
@@ -157,9 +176,7 @@ public class AnagramDictionary {
                 return randomWord;
             }
         }
-
     }
-
     public String sortLetters(String word) {
         char[] words = word.toCharArray();
         Arrays.sort(words);
